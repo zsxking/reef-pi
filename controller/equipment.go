@@ -33,10 +33,7 @@ func (c *Controller) CreateEquipment(eq Equipment) error {
 		eq.ID = id
 		return eq
 	}
-	if err := c.store.Create(EquipmentBucket, fn); err != nil {
-		return err
-	}
-	return c.synOutlet(eq)
+	return c.store.Create(EquipmentBucket, fn)
 }
 
 func (c *Controller) synOutlet(eq Equipment) error {
